@@ -6,7 +6,8 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-class DBHelper(context: Context) : SQLiteOpenHelper(context, "people.db", null, 1) {
+
+class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "people.db", null, 1) {
     val TABLE_NAME = "people_table"
     val COL2 = "NAME"
     val COL3 = "EMAIL"
@@ -38,6 +39,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, "people.db", null, 
         val contentValues = ContentValues()
         contentValues.put(COL2, name)
         contentValues.put(COL3, email)
+
         val result = db.insert(TABLE_NAME, null, contentValues)
         return result != -1L
     }

@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/btnAdd"
-        android:text="Создать запись"
+        android:text="Посмотреть записи"
         android:layout_margin="30dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
