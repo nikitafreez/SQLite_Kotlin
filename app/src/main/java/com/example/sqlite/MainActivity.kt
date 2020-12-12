@@ -3,6 +3,7 @@ package com.example.sqlite
 import android.database.Cursor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_main.*
@@ -20,10 +21,22 @@ class MainActivity : AppCompatActivity() {
         btnShow.setOnClickListener {
             showUsers()
         }
+
+        btnDelete.setOnClickListener {
+            deleteUser()
+        }
+    }
+
+    var name: String = ""
+    private fun deleteUser() {
+        val db = DBHelper(this)
+        val selectedID = edtIdToDelete.text.toString()
+        val res = db.deleteData(selectedID)
+        Toast.makeText(this@MainActivity, "Запись была удалена", Toast.LENGTH_LONG).show()
     }
 
     private fun addUser() {
-        val name: String = edtName.text.toString()
+        name = edtName.text.toString()
         val email:String = edtEmail.text.toString()
         val insertData: Boolean = peopleDB!!.addData(name, email)
         if(insertData == true) {

@@ -10,6 +10,7 @@ import android.provider.ContactsContract
 
 class DBHelper(context: Context) : SQLiteOpenHelper(context, "people.db", null, 1) {
     val TABLE_NAME = "people_table"
+    val COL1 = "ID"
     val COL2 = "NAME"
     val COL3 = "EMAIL"
 
@@ -20,8 +21,8 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, "people.db", null, 
     */
     override fun onCreate(db: SQLiteDatabase?) {
         val createTable =
-            "CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    " NAME TEXT, EMAIL TEXT, TVSHOW TEXT)"
+            "CREATE TABLE " + TABLE_NAME + " (" + COL1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    " NAME TEXT, EMAIL TEXT)"
         db!!.execSQL(createTable)
     }
 
@@ -33,10 +34,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, "people.db", null, 
     /*
         Создаём новую запись
     */
-    fun addData(
-        name: String?,
-        email: String?
-    ) : Boolean {
+    fun addData(name: String?, email: String?) : Boolean {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(COL2, name)
@@ -49,7 +47,12 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, "people.db", null, 
         Получить все записи
     */
     fun showData(): Cursor? {
-        val db = this.readableDatabase
+        val db = this.writableDatabase
         return db!!.rawQuery("SELECT * FROM $TABLE_NAME", null)
+    }
+
+    fun deleteData(selected: String) {
+        val db = this.writableDatabase
+        db.execSQL("DELETE FROM " + TABLE_NAME+ " WHERE "+COL1+"='"+selected+"'")
     }
 }
