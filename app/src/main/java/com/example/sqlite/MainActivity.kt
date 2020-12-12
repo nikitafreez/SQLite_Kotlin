@@ -3,17 +3,16 @@ package com.example.sqlite
 import android.database.Cursor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    var peopleDB: DatabaseHelper? = null
+    var peopleDB: DBHelper? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        peopleDB = DatabaseHelper(this@MainActivity);
+        peopleDB = DBHelper(this@MainActivity);
 
         btnAdd.setOnClickListener {
             addUser()

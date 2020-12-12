@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SQLite.iml" filepath="$PROJECT_DIR$/.idea/modules/SQLite.iml" group="SQLite" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="SQLite/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SQLite.iml" filepath="$PROJECT_DIR$/.idea/modules/SQLite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SQLite.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SQLite.app.iml" />
     </modules>
   </component>
 </project>
